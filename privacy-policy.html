@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="index,follow" />
+<title>Privacy Policy — AskWispr</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="prose">
+<h1>Privacy Policy — AskWispr</h1>
+<p><em>Last updated: 24 April 2026</em></p>
+<p>AskWispr is a software platform operated by <strong>Vidyaax</strong> ("Vidyaax", "we",
+"us"). The platform lets businesses ("Merchants") run multilingual,
+AI-assisted customer-support assistants on WhatsApp and similar channels
+(the "Platform"). Our first Merchant is Muliya Jewellers; more will follow.</p>
+<p>This policy explains how Vidyaax handles personal data in two distinct
+roles:</p>
+<ol>
+<li><strong>As a data processor</strong>, when we process data about a Merchant's end
+   customers (the people who message the Merchant on WhatsApp) on the
+   Merchant's behalf.</li>
+<li><strong>As a data controller</strong>, for operational data we hold about Merchant
+   users (admins, developers) and for the limited platform telemetry we
+   control directly.</li>
+</ol>
+<p>If you are an <strong>end customer</strong> who messaged a Merchant (e.g. Muliya
+Jewellers) on WhatsApp and reached AskWispr's infrastructure, the Merchant
+is the primary data controller for your conversation; please also consult
+that Merchant's privacy notice. Vidyaax acts on the Merchant's
+instructions.</p>
+<hr />
+<h2>1. Who we are</h2>
+<p><strong>Vidyaax</strong> — operator of the AskWispr platform.<br />
+Registered address: [Vidyaax registered office address]<br />
+Contact: <strong>privacy@vidyaax.com</strong><br />
+Grievance officer (India, DPDP Act 2023): [Name], <strong>grievance@vidyaax.com</strong><br />
+Data Protection Officer (where required): <strong>dpo@vidyaax.com</strong></p>
+<hr />
+<h2>2. Data we process on behalf of Merchants (processor role)</h2>
+<p>When an end customer messages a Merchant's WhatsApp number, the Platform
+receives and processes:</p>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Source</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WhatsApp phone number (<code>wa_id</code>, E.164)</td>
+<td>Meta WhatsApp Cloud API</td>
+<td>Route the reply; deduplicate Meta retries; scope short-term conversation memory</td>
+</tr>
+<tr>
+<td>WhatsApp profile name (if Meta exposes it)</td>
+<td>Meta WhatsApp Cloud API</td>
+<td>Optional personalised greeting</td>
+</tr>
+<tr>
+<td>Message content (text, interactive button replies)</td>
+<td>The end customer</td>
+<td>Classify intent, retrieve relevant FAQ / catalog answers, generate the Merchant's reply</td>
+</tr>
+<tr>
+<td>Message metadata (<code>message.id</code>, timestamp, detected language)</td>
+<td>Meta WhatsApp Cloud API</td>
+<td>Idempotency, diagnostics, language detection</td>
+</tr>
+<tr>
+<td>Short-term conversation state (detected language, last intent, last catalog query, summary of recent turns)</td>
+<td>Derived by the Platform</td>
+<td>Multi-turn follow-ups (e.g. "show more")</td>
+</tr>
+</tbody>
+</table>
+<p>We do <strong>not</strong> collect payments, order history, government IDs, precise
+location, contacts, device identifiers, or any special-category data. If an
+end customer volunteers such information, it is treated as message content
+under the retention rules in Section 4.</p>
+<p>Media messages (image, audio, document, location, contact, sticker) are
+<strong>not downloaded or processed</strong> in v1 — the Platform replies that media is
+not yet supported.</p>
+<p>Each Merchant's data is logically segregated. Vidyaax does not combine one
+Merchant's end-customer data with another Merchant's.</p>
+<hr />
+<h2>3. Data we process as a controller</h2>
+<ul>
+<li><strong>Merchant admin accounts.</strong> Name, work email, role, authentication
+  material — to provide the Platform to that Merchant.</li>
+<li><strong>Aggregated, non-identifying telemetry.</strong> Counts of messages handled,
+  latency percentiles, intent-classification accuracy, language
+  distribution — to operate, secure, and improve the Platform.</li>
+<li><strong>Operational logs.</strong> Described in Section 4.</li>
+</ul>
+<hr />
+<h2>4. Retention</h2>
+<ul>
+<li><strong>Conversation memory</strong> (detected language, recent turns, summary): held
+  in server memory only and <strong>automatically discarded 60 minutes after the
+  end customer's last message</strong>, or immediately on service restart. There
+  is no database of chat history.</li>
+<li><strong>Idempotency cache</strong> (WhatsApp <code>message.id</code> values, no message content):
+  bounded in-memory LRU (~10,000 entries), evicted as new messages arrive.</li>
+<li><strong>Operational logs</strong> (timestamp, <code>wa_id</code>, detected intent/language,
+  diagnostic text): retained up to <strong>30 days</strong> for debugging and abuse
+  prevention, then deleted.</li>
+<li><strong>Merchant admin records</strong>: retained for the life of the Merchant
+  relationship plus up to 12 months after termination, then deleted or
+  anonymised.</li>
+<li><strong>Meta WhatsApp Cloud API</strong> retains message metadata under its own
+  retention rules — see https://www.whatsapp.com/legal/privacy-policy.</li>
+</ul>
+<p>Vidyaax does not build long-term end-customer profiles. Vidyaax does not
+use end-customer messages to train AI models.</p>
+<hr />
+<h2>5. Legal basis / grounds for processing</h2>
+<ul>
+<li><strong>Merchant's instructions under a Data Processing Agreement (DPA)</strong> for
+  end-customer data we process on their behalf.</li>
+<li><strong>Contract</strong> with the Merchant for admin-account data.</li>
+<li><strong>Legitimate interests</strong> (GDPR Art. 6(1)(f)) / <strong>legitimate uses</strong> (DPDP
+  Act 2023 §7) for platform security, fraud prevention, and service
+  improvement.</li>
+<li><strong>Consent</strong> — when an end customer initiates a WhatsApp conversation with
+  a Merchant, that interaction constitutes consent to the automated
+  handling described here. It can be withdrawn (Section 8).</li>
+</ul>
+<hr />
+<h2>6. Sub-processors</h2>
+<p>We share the minimum data required to deliver the Platform:</p>
+<table>
+<thead>
+<tr>
+<th>Recipient</th>
+<th>Data they receive</th>
+<th>Role</th>
+<th>Safeguards</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meta Platforms (WhatsApp Cloud API)</td>
+<td>End-customer <code>wa_id</code> and the Merchant's reply text</td>
+<td>Sub-processor — message transport</td>
+<td>Meta's Business Terms; TLS in transit</td>
+</tr>
+<tr>
+<td>LLM provider (default: Google Gemini via LiteLLM; optionally OpenAI, Anthropic, Azure, AWS Bedrock per Merchant configuration)</td>
+<td>The specific message plus retrieved Merchant FAQ / catalog context needed to generate one reply. <strong>No <code>wa_id</code> or phone number is sent.</strong></td>
+<td>Sub-processor — answer generation</td>
+<td>Provider enterprise/API terms; where supported, the "do not train on input" flag is set</td>
+</tr>
+<tr>
+<td>Qdrant vector database</td>
+<td>Merchant FAQ and product-catalog vectors (<strong>no end-customer data</strong>)</td>
+<td>Sub-processor — retrieval</td>
+<td>Hosted under Vidyaax's control</td>
+</tr>
+<tr>
+<td>Cloud hosting provider</td>
+<td>Server logs, in-memory session state</td>
+<td>Sub-processor — hosting</td>
+<td>Standard hosting DPA</td>
+</tr>
+</tbody>
+</table>
+<p>A current list of sub-processors is available at
+https://askwispr.com/legal/subprocessors. We will notify Merchants in
+advance of any material change so they can object.</p>
+<p>Vidyaax does <strong>not</strong> sell or rent personal data. Vidyaax does <strong>not</strong> use
+end-customer messages to train models, for advertising, or for any purpose
+other than answering that customer's question on behalf of the Merchant.</p>
+<p>Cross-border transfers: where a sub-processor processes data outside India,
+we rely on Standard Contractual Clauses (or equivalent) and send only the
+minimum payload needed to answer.</p>
+<hr />
+<h2>7. Security</h2>
+<ul>
+<li>Webhook integrity: every inbound Meta callback is verified via HMAC-SHA256
+  using the Merchant's app secret before it is processed.</li>
+<li>TLS in transit for all connections between Meta, the Platform, LLM
+  providers, and Qdrant.</li>
+<li>Secrets (access tokens, API keys) are held in a secrets manager / env
+  vars, never in code or logs.</li>
+<li>Least-privilege access to Merchant data; audited.</li>
+<li>Tenant isolation at the data and retrieval layers.</li>
+</ul>
+<p>No system is perfectly secure. If we become aware of a personal-data breach
+we will notify affected Merchants without undue delay and cooperate with
+statutory notifications (CERT-In, supervisory authorities) as required.</p>
+<hr />
+<h2>8. Your rights</h2>
+<p>Subject to GDPR, India's DPDP Act 2023, and other applicable law, end
+customers and Merchant users can request:</p>
+<ul>
+<li><strong>Access</strong> — a copy of the data Vidyaax currently holds about you.</li>
+<li><strong>Correction</strong> — fix inaccurate data.</li>
+<li><strong>Erasure / Deletion</strong> — see our <a href="./data-deletion.md">Data Deletion Instructions</a>.</li>
+<li><strong>Withdrawal of consent</strong> — stop messaging the Merchant, or block the
+  Merchant's WhatsApp number.</li>
+<li><strong>Grievance redressal</strong> — contact our grievance officer. Indian users may
+  also approach the Data Protection Board once constituted.</li>
+</ul>
+<p><strong>End customers:</strong> because the Merchant is the primary controller of your
+conversation data, requests are usually fastest when directed to the
+Merchant. Vidyaax will forward your request to the relevant Merchant if
+you contact us directly. To exercise a right that Vidyaax controls, email
+<strong>privacy@vidyaax.com</strong> or send <strong>DELETE</strong> over WhatsApp to the Merchant
+you interacted with.</p>
+<p>We will respond within 30 days.</p>
+<hr />
+<h2>9. Children</h2>
+<p>The Platform is intended for users aged 18 and above. Vidyaax does not
+knowingly process data of minors. If a minor's data has reached the
+Platform, contact privacy@vidyaax.com and we will erase it.</p>
+<hr />
+<h2>10. Changes</h2>
+<p>We update this page when the Platform changes materially. The "Last
+updated" date above always reflects the current version. Material changes
+affecting Merchants are also communicated directly.</p>
+<hr />
+<h2>11. Contact</h2>
+<p>Privacy queries: <strong>privacy@vidyaax.com</strong><br />
+Grievance officer (India): <strong>grievance@vidyaax.com</strong><br />
+DPO (where applicable): <strong>dpo@vidyaax.com</strong><br />
+Postal: Vidyaax, [registered office address]</p>
+<hr />
+<p class="footer">
+<a href="index.html">All legal documents</a> ·
+<a href="privacy-policy.html">Privacy Policy</a> ·
+<a href="terms-of-service.html">Terms of Service</a> ·
+<a href="data-deletion.html">Data Deletion</a>
+</p>
+</main>
+</body>
+</html>
