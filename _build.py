@@ -59,7 +59,7 @@ INDEX_TEMPLATE = """<!doctype html>
 <p>
 AskWispr is a software platform operated by <strong>Vidyaax</strong>.
 It powers multilingual, AI-assisted customer-support assistants on
-WhatsApp for businesses (our first Merchant is Muliya Jewellers).
+WhatsApp for businesses .
 </p>
 <ul>
 <li><a href="privacy-policy.html">Privacy Policy</a></li>
